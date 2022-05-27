@@ -1,0 +1,21 @@
+package model
+
+import (
+	"go-rest-api/model/domain"
+	"go-rest-api/model/web/category"
+)
+
+func ToCategoryResponse(c domain.Category) category.CategoryResponse {
+	return category.CategoryResponse{
+		Id:   c.Id,
+		Name: c.Name,
+	}
+}
+
+func ToCategoryResponses(categories []domain.Category) []category.CategoryResponse {
+	var categoryResponses []category.CategoryResponse
+	for _, category := range categories {
+		categoryResponses = append(categoryResponses, ToCategoryResponse(category))
+	}
+	return categoryResponses
+}
