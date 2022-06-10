@@ -3,6 +3,7 @@ package model
 import (
 	"go-rest-api/model/domain"
 	"go-rest-api/model/web/product"
+	"time"
 )
 
 func ToProductResponse(p domain.Product) product.ProductResponse {
@@ -11,15 +12,17 @@ func ToProductResponse(p domain.Product) product.ProductResponse {
 		Name:       p.Name,
 		Price:      p.Price,
 		CategoryId: p.CategoryId,
+		DateTime:   time.Now(),
 	}
 }
 
-func ToProduct(p product.ProductResponse) domain.Product {
-	return domain.Product{
+func ToProduct(p domain.Product) product.ProductResponse {
+	return product.ProductResponse{
 		Id:         p.Id,
 		Name:       p.Name,
 		Price:      p.Price,
 		CategoryId: p.CategoryId,
+		DateTime:   time.Now(),
 	}
 }
 

@@ -3,12 +3,14 @@ package model
 import (
 	"go-rest-api/model/domain"
 	"go-rest-api/model/web/category"
+	"time"
 )
 
 func ToCategoryResponse(c domain.Category) category.CategoryResponse {
 	return category.CategoryResponse{
-		Id:   c.Id,
-		Name: c.Name,
+		Id:       c.Id,
+		Name:     c.Name,
+		DateTime: time.Now(),
 	}
 }
 

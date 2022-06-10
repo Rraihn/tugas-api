@@ -3,6 +3,7 @@ package model
 import (
 	"go-rest-api/model/domain"
 	"go-rest-api/model/web/customer"
+	"time"
 )
 
 func ToCustomerResponse(c domain.Customer) customer.CustomerResponse {
@@ -12,6 +13,7 @@ func ToCustomerResponse(c domain.Customer) customer.CustomerResponse {
 		Email:       c.Email,
 		Address:     c.Address,
 		PhoneNumber: c.PhoneNumber,
+		DateTime:    time.Now(),
 	}
 }
 
