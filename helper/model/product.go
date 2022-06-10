@@ -16,13 +16,12 @@ func ToProductResponse(p domain.Product) product.ProductResponse {
 	}
 }
 
-func ToProduct(p domain.Product) product.ProductResponse {
-	return product.ProductResponse{
+func ToProduct(p product.ProductResponse) domain.Product {
+	return domain.Product{
 		Id:         p.Id,
 		Name:       p.Name,
 		Price:      p.Price,
 		CategoryId: p.CategoryId,
-		DateTime:   time.Now(),
 	}
 }
 
