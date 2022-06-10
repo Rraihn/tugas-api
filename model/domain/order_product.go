@@ -10,5 +10,5 @@ type OrderProduct struct {
 	Price     string
 	Amount    string
 	CreatedAt time.Time
-	updatedAt time.Time
+	UpdatedAt time.Time
 }

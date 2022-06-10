@@ -3,6 +3,7 @@ package model
 import (
 	"go-rest-api/model/domain"
 	order_product "go-rest-api/model/web/order-product"
+	"time"
 )
 
 func ToOrderProductResponse(op domain.OrderProduct) order_product.OrderProductResponse {
@@ -12,6 +13,7 @@ func ToOrderProductResponse(op domain.OrderProduct) order_product.OrderProductRe
 		ProductId: op.ProductId,
 		Qty:       op.Qty,
 		Price:     op.Price,
+		DateTime:  time.Now(),
 	}
 }
 
@@ -22,6 +24,7 @@ func ToOrderProduct(op domain.OrderProduct) order_product.OrderProductResponse {
 		ProductId: op.ProductId,
 		Qty:       op.Qty,
 		Price:     op.Price,
+		DateTime:  time.Now(),
 	}
 }
 
