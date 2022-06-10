@@ -60,7 +60,7 @@ func (o OrderProductRepositoryImpl) FindOrderProductById(ctx context.Context, tx
 }
 
 func (o OrderProductRepositoryImpl) FindAllOrderProduct(ctx context.Context, tx *sql.Tx) []domain.OrderProduct {
-	SQL := "select id, order_id, product_id, qty, price, created_at, updated_at from order_product "
+	SQL := "select id, order_id, product_id, qty, price from order_product "
 	rows, err := tx.QueryContext(ctx, SQL)
 	helper.PanicIfError(err)
 	defer rows.Close()
@@ -68,7 +68,7 @@ func (o OrderProductRepositoryImpl) FindAllOrderProduct(ctx context.Context, tx 
 	var orderProducts []domain.OrderProduct
 	for rows.Next() {
 		orderProduct := domain.OrderProduct{}
-		err := rows.Scan(&orderProduct.Id, &orderProduct.OrderId, &orderProduct.ProductId, &orderProduct.Qty, &orderProduct.Price, &orderProduct.CreatedAt, &orderProduct.UpdatedAt)
+		err := rows.Scan(&orderProduct.Id, &orderProduct.OrderId, &orderProduct.ProductId, &orderProduct.Qty, &orderProduct.Price)
 		helper.PanicIfError(err)
 		orderProducts = append(orderProducts, orderProduct)
 	}
